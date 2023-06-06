@@ -1,0 +1,24 @@
+<div>
+    <div>
+      <label>Escolha o tipo de investimento!</label>
+      <select class="form-select mt-3" aria-label="Default select example" [(ngModel)]="tipoSelecao">
+        <option value="null">Selecione</option>
+        <option value="fundos">Fundos imobiliários</option>
+        <option value="acao">Ações</option>
+        <option value="tesouro">Tesouro direto</option>
+      </select>
+    </div>
+   <div *ngIf="tipoSelecao == 'fundos'">
+      <app-fundos></app-fundos>
+   </div>
+   <div *ngIf="tipoSelecao == 'acao'">
+    <app-acao></app-acao>
+   </div>
+   <div *ngIf="tipoSelecao == 'tesouro'">
+    <app-tesouro></app-tesouro>
+   </div>   
+
+   
+  </div>
+  
+  

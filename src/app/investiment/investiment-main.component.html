@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Template · Bootstrap v5.0</title>
+  </head>
+<body>
+  <div class="flex">
+    <div class="sidebar-invest">
+        <input type="checkbox" id="btn_menu">
+        <div class="mobile-menu">
+          <label for="btn_menu">&#9776;</label>
+          <mat-icon matListItemIcon class="icon-chart" (click)="openDialog('canvas')">pie_chart</mat-icon>
+        </div>
+           <nav class="menu">
+           <div class="box-user"> 
+               <img src="assets/images/brand-header-login.png"/>
+             <p class="mt-4">Usuário: {{ this.auth.userEmail}}</p>
+           </div> 
+           <mat-list class="mat-list">
+             <mat-list-item>
+               <mat-icon matListItemIcon>add_circle</mat-icon>
+               <mat-list-item role="listitem" (click)="openDialog('add')">Add cards</mat-list-item>
+             </mat-list-item>
+             <mat-divider></mat-divider>
+             <mat-list-item >
+               <mat-icon matListItemIcon>home</mat-icon>
+               <mat-list-item role="listitem">Fundos imobiliários</mat-list-item>
+             </mat-list-item>
+             <mat-divider></mat-divider>
+             <mat-list-item >
+               <mat-icon matListItemIcon>filter_list</mat-icon>
+               <mat-list-item role="listitem" class="tab-font">Ações</mat-list-item>
+             </mat-list-item>
+             <mat-divider></mat-divider>
+             <mat-list-item >
+               <mat-icon matListItemIcon>savings</mat-icon>
+               <mat-list-item role="listitem">Tesouro direto</mat-list-item>
+             </mat-list-item>
+             <mat-divider></mat-divider>
+             <mat-list-item >
+               <mat-icon matListItemIcon>person</mat-icon>
+               <mat-list-item role="listitem">Perfil</mat-list-item>
+             </mat-list-item>
+           </mat-list>
+           </nav>
+           <div  class="canvas">
+             <canvas #meuCanvas></canvas>
+           </div>  
+    </div>
+    <div class="content-invest">
+      <main>
+        <div class="header-main">
+          <div class="flex-header">
+              <div class="input-group item-header">
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="select"> 
+                  <option selected [value]="null">Selecione</option>
+                  <option [value]="1">Fundos imobiliários</option>
+                  <option [value]="2">Ações</option>
+                  <option [value]="3">Tesouro direto</option>
+                </select>
+                <input type="text" class="form-control" placeholder="Nome" name="valorBusca" [(ngModel)]="valor" [disabled]="select === null">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+                <div class="item-header">
+                  <button type="button" class="btn btn-search" (click)="buscar()">Pesquisar</button>
+                </div>
+              </div> 
+              <div class="item-header premium" (click)="openDialog('premium')">
+                <img src="assets/images/icon-premium.png" class="premium-icon">
+                Premium
+              </div>
+              <div class="item-header btn-exit">
+                <mat-icon matListItemIcon (click)="logout()" style="color: #820AD1;">logout</mat-icon>
+              </div>
+            </div>
+         </div>
+          <div class="container-fluid mt-5">
+          <mat-tab-group>
+            <mat-tab label="Fundos Imobiliários"> 
+              <div class="row m-0">
+                <div class="col-lg-3 col-sm-12 mb-4 mt-4" *ngFor="let item of service.listagem | async">
+                 <div class="card shadow p-3 bg-white rounded">
+                   <div>
+                     <div class="menu-card"><mat-icon matListItemIcon  [matMenuTriggerFor]="menu">more_vert</mat-icon>
+                       <mat-menu #menu="matMenu">
+                       <button mat-menu-item  (click)="editar(item.tipo, item)">Editar</button>
+                       <button mat-menu-item (click)="deletar(item.id, item.tipo)">Excluir</button>
+                      </mat-menu>
+                     </div>
+                     <p *ngIf="validaTipo(item.tipo) === 'fundos'"><strong>Tipo:</strong> Fundos imobiliários <mat-icon matListItemIcon class="icon-card">home</mat-icon></p>
+                     <p><strong>Nome:</strong> {{item.nome | uppercase}}</p> 
+                     <p><strong>Setor:</strong> {{item.setor}}</p>
+                     <p><strong>Preço atual:</strong> {{item.preco | currency:'BRL' : true:'1.2-2' }}</p>
+                     <p><strong>Liquidez diária:</strong> {{item.liquidez + ' negociações'}}</p>
+                     <p><strong>Último rendimento:</strong> {{item.ultimoRendimento | currency:'BRL' : true:'1.2-2'}}</p>
+                     <p><strong>Dividend yield:</strong> {{item.yield === null? 'N/A' : item.yield | percent }}</p>
+                     <p><strong>Patrimônio líquido:</strong> {{item.patrimonioLiquido | currency:'BRL' : true:'1.2-2'}}</p>
+                     <p><strong>Valor patrimonial:</strong> {{item.valorPatrimonial === null? 'N/A' :item.valorPatrimonial | currency:'BRL' : true:'1.2-2'}}</p>
+                     <p><strong>Rentab. no mês:</strong> {{item.rentabilidadeMes === null? 'N/A':item.rentabilidadeMes | percent }}</p>
+                     <p><strong>P/VP:</strong> {{item.pVP}}</p>
+                     <p><strong>Cotas:</strong> {{item.cotas}}</p>
+                   </div>
+                 </div>
+                </div>
+           </div>
+            </mat-tab>
+            <mat-tab label="Ações">
+              <div class="row m-0">
+                <div class="col-lg-3 col-sm-12 mb-4 mt-4" *ngFor="let item of service.listagem2 | async">
+                 <div class="card shadow p-3 bg-white rounded">
+                   <div>
+                     <div class="menu-card"><mat-icon matListItemIcon  [matMenuTriggerFor]="menu">more_vert</mat-icon>
+                       <mat-menu #menu="matMenu">
+                       <button mat-menu-item  (click)="editar(item.tipo, item)">Editar</button>
+                       <button mat-menu-item (click)="deletar(item.id, item.tipo)">Excluir</button>
+                      </mat-menu>
+                     </div>
+                     <p *ngIf="validaTipo(item.tipo) === 'acao'"><strong>Tipo</strong>: Ação<mat-icon matListItemIcon class="icon-card">flight</mat-icon></p>
+                     <p><strong>Nome:</strong> {{item.nome}}</p>
+                     <p><strong>Último preço:</strong> {{item.ultimoPreco | currency:'BRL' : true:'1.2-2'}}</p>
+                     <p><strong>Preço médio:</strong> {{item.preco | currency:'BRL' : true:'1.2-2'}}</p>
+                     <p><strong>Rentabilidade:</strong> {{item.rentabilidade | percent}}</p>
+                     <p><strong>Posição:</strong> {{item.posicao | currency:'BRL' : true:'1.2-2'}}</p>
+                     <p><strong>Quantidade:</strong> {{item.quantidade}}</p>
+                   </div>
+                 </div>
+                </div>
+           </div>
+            </mat-tab>
+            <mat-tab label="Tesouro Direto">
+              <div class="row m-0">
+                <div class="col-lg-3 col-sm-12 mb-4 mt-4" *ngFor="let item of service.listagem3 | async">
+                 <div class="card shadow p-3 bg-white rounded">
+                   <div>
+                     <div class="menu-card"><mat-icon matListItemIcon  [matMenuTriggerFor]="menu">more_vert</mat-icon>
+                       <mat-menu #menu="matMenu">
+                       <button mat-menu-item  (click)="editar(item.tipo, item)">Editar</button>
+                       <button mat-menu-item (click)="deletar(item.id, item.tipo)">Excluir</button>
+                      </mat-menu>
+                     </div>
+                     <p *ngIf="validaTipo(item.tipo) === 'tesouro'"><strong>Modalidade:</strong> {{item.modalidade}} <mat-icon matListItemIcon class="icon-card">savings</mat-icon></p>
+                     <p><strong>Posição:</strong> {{item.posicao | currency:'BRL' : true:'1.2-2' }}</p>
+                     <p><strong>% Alocação:</strong> {{item.alocacao | percent}}</p>
+                     <p><strong>Total aplicado:</strong> {{item.totalAplicado | currency:'BRL' : true:'1.2-2'}}</p>
+                     <p><strong>Qtd:</strong> {{item.quantidade | currency:'BRL' : true:'1.2-2'}}</p>
+                     <p><strong>Dísponivel:</strong> {{item.disponivel | currency:'BRL' : true:'1.2-2'}}</p>
+                     <p><strong>Vencimento:</strong> {{item.vencimento | date:"MM/dd/yyyy" }}</p>
+                   </div>
+                 </div>
+                </div>
+           </div> 
+            </mat-tab>
+          </mat-tab-group>
+         </div> 
+        </main> 
+    </div>
+  </div>
+</body>
+</html>
+
+

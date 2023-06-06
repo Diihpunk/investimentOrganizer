@@ -1,0 +1,46 @@
+.container-top{
+    background-color: #820AD1;
+    height: 80px;
+}
+.nav-branding{
+    margin-left: 50px;
+}
+.nav-back{
+    padding-right: 50px;
+}
+.main-form{
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+    padding: 20px;
+}
+.btn-salvar{
+    background-color: #820AD1;
+    border: none;
+    color: #ffffff;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    height: 45px;
+}
+.btn-salvar:hover{
+    opacity: 0.5;
+}
+.btn-cancelar{
+    background-color: white;
+    border: none;
+    border: 1px solid #820AD1;
+    color: #820AD1;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    height: 45px;
+}
+.btn-cancelar:hover{
+    background-color: #820AD1;
+    border: none;
+    color: #ffffff;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    height: 45px;
+}

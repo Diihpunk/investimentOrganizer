@@ -1,0 +1,88 @@
+{
+  "Fundos": [
+    {
+      "id": 1,
+      "nome": "ABCCP11",
+      "setor": "shopping",
+      "title": "Fundo Imobiliário",
+      "tipoId": 1
+    },
+    {
+      "id": 2,
+      "nome": "AFHI11",
+      "setor": "títulos e Val.Mob",
+      "title": "Ações Nacionais",
+      "tipoId": 2
+    },
+    {
+      "id": 3,
+      "nome": "AFOF11",
+      "setor": "Lajes Corporativas",
+      "title": "Ações Internacionais",
+      "tipoId": 3
+    },
+    {
+      "id": 4,
+      "nome": "AIEC11",
+      "setor": "Lajes Corporativas",
+      "title": "Tesouro Direto",
+      "tipoId": 4
+    },
+    {
+      "id": 5,
+      "nome": "ABCCP11",
+      "setor": "shopping",
+      "title": "Fundo Imobiliário",
+      "tipoId": 1
+    },
+    {
+      "id": 6,
+      "nome": "AFHI11",
+      "setor": "títulos e Val.Mob",
+      "title": "Ações Nacionais",
+      "tipoId": 2
+    },
+    {
+      "id": 7,
+      "nome": "AFOF11",
+      "setor": "Lajes Corporativas",
+      "title": "Ações Internacionais",
+      "tipoId": 3
+    },
+    {
+      "id": 8,
+      "nome": "AIEC11",
+      "setor": "Lajes Corporativas",
+      "title": "Tesouro Direto",
+      "tipoId": 4
+    },
+    {
+      "id": 9,
+      "nome": "ABCCP11",
+      "setor": "shopping",
+      "title": "Fundo Imobiliário",
+      "tipoId": 1
+    },
+    {
+      "id": 10,
+      "nome": "AFHI11",
+      "setor": "títulos e Val.Mob",
+      "title": "Ações Nacionais",
+      "tipoId": 2
+    },
+    {
+      "id": 11,
+      "nome": "AFOF11",
+      "setor": "Lajes Corporativas",
+      "title": "Ações Internacionais",
+      "tipoId": 3
+    },
+    {
+      "id": 12,
+      "nome": "AIEC11",
+      "setor": "Lajes Corporativas",
+      "title": "Tesouro Direto",
+      "tipoId": 4
+    }
+  ]
+}

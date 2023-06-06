@@ -1,0 +1,88 @@
+
+
+
+<form class="example-form" [formGroup]="formFundos" (submit)="onSubmit(formFundos.value)">
+    <div class="row mt-4">
+      <mat-form-field class="space col-12">
+          <mat-label>Nome:</mat-label>
+          <input matInput  formControlName="nome" class="upperCaseText" >
+      </mat-form-field> 
+      <mat-form-field class="space col-12">
+      <mat-label>Setor:</mat-label>
+      <mat-select formControlName="setor">
+          <mat-option value="Agências bancárias">Agências bancárias</mat-option>
+          <mat-option value="Escolas">Escolas</mat-option>
+          <mat-option value="Escritórios">Escritórios</mat-option>
+          <mat-option value="Galpões logísticos">Galpões logísticos</mat-option>
+          <mat-option value="Híbrido">Híbrido</mat-option>
+          <mat-option value="Hotéis">Hotéis</mat-option>
+          <mat-option value="Hospitais">Hospitais</mat-option>
+          <mat-option value="Papel">Papel</mat-option>
+          <mat-option value="Prédios industriais">Prédios industriais</mat-option>
+          <mat-option value="shopping centers">shopping centers</mat-option>
+      </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row">
+    <mat-form-field class="space col-12">
+        <mat-label>Preço atual:</mat-label>
+        <input  matInput  type="number" formControlName="preco" max="10000.00" step="00.01">
+    </mat-form-field>
+    <mat-form-field class="space col-12">
+          <mat-label>Liquidez diária:</mat-label>
+          <input matInput formControlName="liquidez" max="10000.00" step="00.01">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="space col-12">
+        <mat-label>Último rendimento:</mat-label>
+        <input matInput   formControlName="ultimoRendimento" max="10000.00" step="00.01">
+    </mat-form-field>
+    <mat-form-field class="space col-12">
+      <mat-label>Dividend yield:</mat-label>
+      <input matInput   formControlName="yield" max="10000.00" step="00.01">
+    </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="space col-12">
+        <mat-label>Patrimônio líquido:</mat-label>
+        <input matInput   formControlName="patrimonioLiquido"  max="100000000" step="000.01">
+    </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="space col-12">
+        <mat-label>Valor patrimonial:</mat-label>
+        <input matInput   formControlName="valorPatrimonial" max="10000.00" step="00.01">
+    </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="space col-12">
+        <mat-label>Rentab, no mês:</mat-label>
+        <input matInput type="text"  formControlName="rentabilidadeMes" max="10000.00" step="00.01">
+    </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="space col-12">
+        <mat-label>P/VP:</mat-label>
+        <input matInput   formControlName="pVP"  mask="0,000" >
+    </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="space col-12">
+        <mat-label>Cotas:</mat-label>
+        <input matInput   formControlName="cotas">
+    </mat-form-field>
+    </div>
+    <div class="row">
+      <button 
+      mat-button  
+      [ngClass]="formFundos.valid? 'btn-salvar col-6':'btn-disabled'"  
+      type="submit" 
+      [disabled]="!formFundos.valid"
+      >Salvar</button>
+      <button mat-button mat-dialog-close class="btn-cancelar col-6">Cancelar</button>
+    </div>
+    </form>
+
+
+  

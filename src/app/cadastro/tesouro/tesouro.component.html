@@ -1,0 +1,52 @@
+
+<form class="example-form" [formGroup]="formTesouro" (submit)="onSubmit(formTesouro.value)">
+    <div class="row mt-4">
+        <mat-form-field class="space col-12">
+          <mat-label for="nome">Modalidade:</mat-label>
+          <input matInput   formControlName="modalidade">
+      </mat-form-field>
+      </div>
+    <div class="row">
+      <mat-form-field class="space col-12">
+        <mat-label>Posição:</mat-label>
+        <input matInput  formControlName="posicao">
+      </mat-form-field>
+    </div>
+    <div class="row">
+    <mat-form-field class="space col-12">
+        <mat-label for="nome">% Alocação:</mat-label>
+        <input matInput   formControlName="alocacao">
+    </mat-form-field>
+    <mat-form-field class="space col-12">
+          <mat-label for="nome">Total aplicado:</mat-label>
+          <input matInput   formControlName="totalAplicado">
+      </mat-form-field>
+    <mat-form-field class="space col-12">
+        <mat-label for="nome">Quantidade:</mat-label>
+        <input matInput   formControlName="quantidade">
+    </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="space col-12">
+        <mat-label for="nome">Dísponivel:</mat-label>
+        <input matInput   formControlName="disponivel">
+    </mat-form-field>
+    <mat-form-field class="space col-12">
+      <mat-label for="nome">Vencimento:</mat-label>
+      <input matInput type="date"  formControlName="vencimento">
+  </mat-form-field>
+    </div>
+
+    <div class="row">
+      <button 
+      mat-button  
+      [ngClass]="formTesouro.valid? 'btn-salvar col-6':'btn-disabled'"  
+      type="submit" 
+      [disabled]="!formTesouro.valid"
+      >Salvar</button>
+      <button mat-button mat-dialog-close class="btn-cancelar col-6">Cancelar</button>
+    </div>
+    </form>
+
+
+  

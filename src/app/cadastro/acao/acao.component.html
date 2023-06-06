@@ -1,0 +1,45 @@
+
+<form class="example-form" [formGroup]="formAcao" (submit)="onSubmit(formAcao.value)">
+  <div class="row mt-4">
+    <mat-form-field class="space col-12">
+      <mat-label>Nome:</mat-label>
+      <input matInput  formControlName="nome">
+    </mat-form-field>
+  </div>
+    <div class="row">
+      <mat-form-field class="space col-12">
+        <mat-label>Último preço:</mat-label>
+        <input matInput  formControlName="ultimoPreco">
+      </mat-form-field>
+    </div>
+    <div class="row">
+    <mat-form-field class="space col-12">
+          <mat-label for="nome">Preço:</mat-label>
+          <input matInput   formControlName="preco" max="10000.00" step="00.01">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="space col-12">
+        <mat-label for="nome">Rentabilidade:</mat-label>
+        <input matInput   formControlName="rentabilidade">
+    </mat-form-field>
+    <mat-form-field class="space col-12">
+      <mat-label for="nome">Quantidade:</mat-label>
+      <input matInput   formControlName="quantidade">
+  </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field class="space col-12">
+        <mat-label for="nome">Posição:</mat-label>
+        <input matInput   formControlName="posicao" max="10000.00" step="00.01">
+    </mat-form-field>
+    </div>
+    <div class="row">
+      <button mat-button  class="btn-salvar col-6" type="submit" [disabled]="!formAcao.valid"
+      >Salvar</button>
+      <button mat-button mat-dialog-close class="btn-cancelar col-6">Cancelar</button>
+    </div>
+    </form>
+
+
+  

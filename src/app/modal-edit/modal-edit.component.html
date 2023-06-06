@@ -1,0 +1,38 @@
+<header>
+    <img class="close" src="assets/images/closed.svg" mat-button mat-dialog-close/>
+
+</header>
+<div>
+    <form class="example-form" [formGroup]="formulario" (submit)="editarCadastro(formulario.value)">
+      <div class="row">
+        <mat-form-field class="space col-12">
+            <mat-label>Fundo:</mat-label>
+            <input matInput  [value]="setor" formControlName="title">
+        </mat-form-field>
+        </div>
+      <div class="row">
+        <mat-form-field class="space col-12">
+          <mat-label>Nome:</mat-label>
+          <input matInput  formControlName="nome">
+        </mat-form-field>
+
+      </div>
+      <div class="row">
+      <mat-form-field class="space col-12">
+          <mat-label for="nome">Setor:</mat-label>
+          <input matInput  [value]="setor" formControlName="setor">
+      </mat-form-field>
+      </div>
+      <button mat-button class="btn-salvar" type="submit"
+      >Salvar</button>
+      </form>
+    
+
+</div>
+
+
+
+
+
+
+

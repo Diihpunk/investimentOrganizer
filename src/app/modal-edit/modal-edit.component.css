@@ -1,0 +1,25 @@
+.close{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+header{
+    text-align: end;
+}
+.space{
+    margin: 5px;
+}
+input:disabled{
+    color:black;
+}
+.btn-salvar{
+    background-color: #6131B4;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    height: 40px;
+  }
+.btn-salvar:hover{
+    opacity: 0.5;
+  }

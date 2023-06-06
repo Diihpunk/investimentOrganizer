@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "projeto-investment-organizer": {
+      "hosting": {
+        "investment-organizer": [
+          "projeto-investment-organizer"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "projeto-investment-organizer"
+  }
+}

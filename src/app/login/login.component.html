@@ -1,0 +1,45 @@
+
+
+                <div class="alinhar-div-3" id="externa">
+                    <div class="container-top">
+                        <div class="row">
+                            <div class="col-lg-3 col-xl-3 col-sm-12 col-md-12">
+                                <a href="/"><img  src="assets/images/brand-header-login.png" class="nav-branding"/></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="interna">
+                                <div class="row" >
+                                    <div class="col-lg-8 col-xl-8 col-md-12 col-sm-12">
+                                        <h1>Login do cliente</h1>
+                                        <p>Organize de forma simples e fácil seus investimentos.</p>
+                                        <form [formGroup]="formLogin" (submit)="login(formLogin.value)" >
+                                            <div>
+                                                <mat-form-field class="width-full">
+                                                    <mat-label>username</mat-label>
+                                                    <input matInput formControlName="email" >
+                                                  </mat-form-field>
+                                            </div>
+                                            <div>
+                                                <mat-form-field class="width-full">
+                                                    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                                                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                                    <mat-hint *ngIf="!formLogin.controls['password'].value">informa sua senha</mat-hint>
+                                                </mat-form-field>
+                                            </div>
+                                            <div>
+                                                <!-- <a routerLink="/investment" class="flex"><button mat-button class="mt-4 btn-continuar" type="submit">Continuar</button></a> -->
+                                               <button mat-button class="mt-4 btn-continuar" type="submit">Continuar</button>
+                                            </div>
+                                        </form>
+                                        <!-- <span class="mt-4">Não tem cadastro? <a routerLink="/minha-conta/cadastro" class="flex">Cadastre-se</a></span> -->
+                                        <span class="mt-4">Não tem cadastro? <a routerLink="/minha-conta/cadastro" class="flex">Cadastre-se</a></span><br>
+                                        <span class="mt-4">Esqueceu a senha? <a routerLink="/minha-conta/recuperarSenha" class="flex">recuperar</a></span>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+              
+           
+  
+

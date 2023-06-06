@@ -1,0 +1,42 @@
+<div class="container-top">
+    <div class="row">
+        <div class="col-lg-4 col-xl-4 col-sm-12 col-md-12">
+            <a href="/"><img  src="assets/images/brand-header-login.png" class="nav-branding"/></a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-4 mt-5 main-form">
+            <h1>Esqueci a senha</h1>
+            <p>Falta pouco para recuperar sua senha.</p> 
+            <form class="example-form" [formGroup]="formResetSenha" (submit)="forgotPassword()">
+                <div class="row">
+                <mat-form-field class="space col-12">
+                  <mat-label for="nome">Informe seu e-mail:</mat-label>
+                  <input matInput   formControlName="email">
+              </mat-form-field>
+                </div>
+                <div class="row">
+                  <button 
+                  mat-button  
+                  class="btn-salvar mt-4"
+                  type="submit" 
+                  >Salvar</button>
+                </div>
+                <div class="row">
+                    <button 
+                    mat-button  
+                    routerLink="/login"
+                    class="btn-cancelar"
+                    type="submit" 
+                    >Cancelar</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+  
