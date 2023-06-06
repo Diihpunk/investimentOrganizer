@@ -7,3 +7,4 @@ basically is a website with user register, when the user do to register he is ac
 We have some images of the system and the website.
 
 
+<img src="https://github.com/Diihpunk/investimentOrganizer/tree/main/src/assets/images/photos/home.png">
